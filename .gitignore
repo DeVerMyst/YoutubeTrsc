@@ -1,0 +1,5 @@
+/.venv
+/build
+/dist
+/tk.py
+/tk.spec

@@ -21,7 +21,6 @@ if url:
     if video_id:
         try:
             transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['fr', 'en','pl'])
-
             st.success(f"Transcription trouvée ! ({len(transcript)} lignes)")
             selected_line = st.radio(
                 "📝 Cliquez une phrase pour voir son timestamp :",
@@ -39,10 +38,7 @@ if url:
                     st.info(f"⏱ Cette phrase commence à `{match.group(1)}`")
                     st.markdown(f"[▶️ Ouvrir sur YouTube à ce moment précis]({yt_link})", unsafe_allow_html=True)
 
-            # st.markdown("---")
-            # st.markdown("### 🔍 Transcription complète (Ctrl+F activé)")
-            # full_text = "\n".join([f"[{format_time(t['start'])}] {t['text']}" for t in transcript])
-            # st.text_area("🧾", value=full_text, height=400)
+
 
         except Exception as e:
             st.error(f"Erreur lors de la récupération de la transcription :\n{e}")
